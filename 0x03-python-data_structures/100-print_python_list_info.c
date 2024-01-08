@@ -1,4 +1,5 @@
-#include <python.h>
+#include <Python.h>
+#include <listobject.h>
 
 /**
  * print_python_list_info - function that prints basic info of python lists
