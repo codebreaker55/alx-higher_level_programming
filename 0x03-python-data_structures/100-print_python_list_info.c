@@ -13,7 +13,7 @@
 void print_python_list_info(PyObject *p)
 {
 	const int siz = Py_SIZE(p);
-	const int aloc = ((PyListobject *)p)->allocated;
+	const int aloc = ((PyListObject *)p)->allocated;
 
 	printf("[*] Size of the Python List = %d\n[*] Allocated = %d\n", siz, aloc);
 	for (int n = 0; n < siz; n++)
