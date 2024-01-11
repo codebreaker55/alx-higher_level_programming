@@ -47,7 +47,7 @@ void print_python_list_info(PyObject *p)
 
 void print_python_bytes(PyObject *p)
 {
-	unsigned char n, size;
+	unsigned char n, siz;
 	PyBytesObject *byts = (PyBytesObject *)p;
 
 	printf("[.] bytes object info\n");
@@ -66,7 +66,7 @@ void print_python_bytes(PyObject *p)
 	}
 	else
 	{
-		size = ((PyVarObject *)p)->ob_size + 1;
+		siz = ((PyVarObject *)p)->ob_size + 1;
 	}
 	printf("  first %d bytes: ", siz);
 
