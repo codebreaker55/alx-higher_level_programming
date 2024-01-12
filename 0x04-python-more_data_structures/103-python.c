@@ -30,7 +30,7 @@ void print_python_list(PyObject *p)
 		type = lis->ob_item[n]->ob_type->tp_name;
 		printf("Element %d: %s\n", n, type);
 
-		if (strcmp(type, "byts") == 0)
+		if (strcmp(type, "bytes") == 0)
 		{
 			print_python_bytes(lis->ob_item[n]);
 		}
@@ -48,17 +48,17 @@ void print_python_list(PyObject *p)
 void print_python_bytes(PyObject *p)
 {
 	unsigned char n, siz;
-	PyBytesObject *byts = (PyBytesObject *)p;
+	PyBytesObject *bytes = (PyBytesObject *)p;
 
 	printf("[.] bytes object info\n");
 
-	if (strcmp(p->ob_type->tp_name, "byts") != 0)
+	if (strcmp(p->ob_type->tp_name, "bytes") != 0)
 	{
 		printf("  [ERROR] Invalid Bytes Object\n");
 		return;
 	}
 	printf("  size: %ld\n", ((PyVarObject *)p)->ob_size);
-	printf("  trying string: %s\n", byts->ob_sval);
+	printf("  trying string: %s\n", bytes->ob_sval);
 
 	if (((PyVarObject *)p)->ob_size > 10)
 	{
@@ -72,7 +72,7 @@ void print_python_bytes(PyObject *p)
 
 	for (n = 0; n < siz; n++)
 	{
-		printf("%02hhx", byts->ob_sval[n]);
+		printf("%02hhx", bytes->ob_sval[n]);
 		if (n == siz - 1)
 		{
 			printf("\n");
