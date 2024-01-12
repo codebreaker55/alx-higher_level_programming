@@ -4,14 +4,14 @@ void print_python_list(PyObject *p);
 void print_python_bytes(PyObject *p);
 
 /**
- * print_python_list_info - function that prints basic info of python lists
+ * print_python_list - function that prints basic info of python lists
  *
  * @p: is a pyobject list
  *
  * Return: nothing
 */
 
-void print_python_list_info(PyObject *p)
+void print_python_list(PyObject *p)
 {
 	int siz, aloc, n;
 	const char *type;
@@ -30,7 +30,7 @@ void print_python_list_info(PyObject *p)
 		type = lis->ob_item[n]->ob_type->tp_name;
 		printf("Element %d: %s\n", n, type);
 
-		if (strcmp(type, "bytes") == 0)
+		if (strcmp(type, "byts") == 0)
 		{
 			print_python_bytes(lis->ob_item[n]);
 		}
@@ -52,7 +52,7 @@ void print_python_bytes(PyObject *p)
 
 	printf("[.] bytes object info\n");
 
-	if (strcmp(p->ob_type->tp_name, "bytes") != 0)
+	if (strcmp(p->ob_type->tp_name, "byts") != 0)
 	{
 		printf("  [ERROR] Invalid Bytes Object\n");
 		return;
