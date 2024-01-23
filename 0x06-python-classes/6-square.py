@@ -5,7 +5,6 @@
 class Square:
     """Defining the size within the square class"""
 
-
     def __init__(self, size=0, position=(0, 0)):
         """Inizializing the Private instance attribute: size and position"""
 
@@ -48,13 +47,14 @@ class Square:
         return self.__size * self.__size
 
     def my_print(self):
-        """Public instance method that prints in stdout the square with the character #"""
+        """Public instance method that prints in stdout
+        the square with the character #"""
 
         if self.__size == 0:
             print("")
             return
 
-        [print ("") for n in range(0, self.__position[1])]
+        [print("") for n in range(0, self.__position[1])]
         for n in range(0, self.__size):
             [print(" ", end="") for m in range(0, self.__position[0])]
             [print("#", end="") for i in range(0, self.__size)]
