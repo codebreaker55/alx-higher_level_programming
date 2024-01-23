@@ -41,10 +41,12 @@ class Square:
             raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 
+
     def area(self):
         """a Public instance method that returns the current square area"""
 
         return self.__size * self.__size
+
 
     def my_print(self):
         """Public instance method that prints in stdout
@@ -53,7 +55,8 @@ class Square:
         if self.__size == 0:
             print("")
             return
-        
+
+
         [print ("") for n in range(0, self.__position[1])]
         for n in range(0, self.__size):
             [print(" ", end="") for m in range(0, self.__position[0])]
