@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <python.h>
+#include <Python.h>
 #include <floatobject.h>
 
 /**
@@ -24,8 +24,22 @@ void print_python_list(PyObject *p)
 		printf("  [ERROR] Invalid List Object\n");
 		return;
 	}
-	printf("[*] Size of the Python List = %d\n", siz);
-	printf("[*] Allocated = %d\n", aloc);
+	printf("[*] Size of the Python List = %lu\n", ((PyVarObject *)p)->ob_size);
+	printf("[*] Allocated = %lu\n", ((PyListObject *)p)->allocated);
+
+	for (n = 0; n < ((PyVarObject *)p)->ob_size; n++)
+	{
+		printf("Element %d: %s\n", n,
+				((PyListObject *)p)->ob_item[n]->ob_type->tp_name);
+		if (!strcmp(((PyListObject *)p)->ob_item[n]->ob_type->tp_name, "bytes"))
+		{
+			print_python_bytes(((PyListObject *)p)->ob_item[n]);
+		}
+		else if (!strcmp(((PyListObject *)p)->ob_item[n]->ob_type->tp_name, "float"))
+		{
+			print_python_float(((PyListObject *)p)->ob_item[n]);
+		}
+	}
 }
 
 /**
