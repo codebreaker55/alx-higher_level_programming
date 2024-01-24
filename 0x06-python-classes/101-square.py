@@ -60,7 +60,7 @@ class Square:
             [print("#", end="") for i in range(0, self.__size)]
             print("")
 
-    def __str__(self):
+    def __strin__(self):
         """inializing Printing a Square instance"""
 
         if self.__size != 0:
@@ -68,6 +68,6 @@ class Square:
         for n in range(0, self.__size):
             [print(" ", end="") for m in range(0, self.__position[0])]
             [print("#", end="") for i in range(0, self.__size)]
-            if n != self.__size - 1
-            print("")
+            if n != self.__size - 1:
+                print("")
         return ("")
