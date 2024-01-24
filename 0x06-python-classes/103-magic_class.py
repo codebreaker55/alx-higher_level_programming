@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """Initializing Python class MagicClass"""
 
+import math
+
 
 class MagicClass:
     """settinng the radius to 0"""
@@ -22,4 +24,4 @@ class MagicClass:
         def circumference(self):
             """it returns the circumference of the magic class"""
 
-            return 2 * math.pi * self.__radius
+            return self.__radius * 2 * math.pi
