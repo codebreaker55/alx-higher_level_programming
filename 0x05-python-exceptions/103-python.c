@@ -4,45 +4,6 @@
 #include <floatobject.h>
 
 /**
- * print_python_list - function that prints basic info of python lists
- *
- * @p: is a pyobject list
- *
- * Return: nothing
-*/
-
-void print_python_list(PyObject *p)
-{
-	int n;
-
-	setbuf(stdout, NULL);
-
-	printf("[*] Python list info\n");
-
-	if (strcmp(p->ob_type->tp_name, "list"))
-	{
-		printf("  [ERROR] Invalid List Object\n");
-		return;
-	}
-	printf("[*] Size of the Python List = %lu\n", ((PyVarObject *)p)->ob_size);
-	printf("[*] Allocated = %lu\n", ((PyListObject *)p)->allocated);
-
-	for (n = 0; n < ((PyVarObject *)p)->ob_size; n++)
-	{
-		printf("Element %d: %s\n", n,
-				((PyListObject *)p)->ob_item[n]->ob_type->tp_name);
-		if (!strcmp(((PyListObject *)p)->ob_item[n]->ob_type->tp_name, "bytes"))
-		{
-			print_python_bytes(((PyListObject *)p)->ob_item[n]);
-		}
-		else if (!strcmp(((PyListObject *)p)->ob_item[n]->ob_type->tp_name, "float"))
-		{
-			print_python_float(((PyListObject *)p)->ob_item[n]);
-		}
-	}
-}
-
-/**
  * print_python_bytes - function that prints basic info of python objects
  *
  * @p: is a pyobject list
@@ -103,4 +64,43 @@ void print_python_float(PyObject *p)
 
 	printf("  value: %s\n", PyOS_double_to_string
 			(f, 'r', '0', Py_DTSF_ADD_DOT_0, NULL));
+}
+
+/**
+ * print_python_list - function that prints basic info of python lists
+ *
+ * @p: is a pyobject list
+ *
+ * Return: nothing
+*/
+
+void print_python_list(PyObject *p)
+{
+	int n;
+
+	setbuf(stdout, NULL);
+
+	printf("[*] Python list info\n");
+
+	if (strcmp(p->ob_type->tp_name, "list"))
+	{
+		printf("  [ERROR] Invalid List Object\n");
+		return;
+	}
+	printf("[*] Size of the Python List = %lu\n", ((PyVarObject *)p)->ob_size);
+	printf("[*] Allocated = %lu\n", ((PyListObject *)p)->allocated);
+
+	for (n = 0; n < ((PyVarObject *)p)->ob_size; n++)
+	{
+		printf("Element %d: %s\n", n,
+				((PyListObject *)p)->ob_item[n]->ob_type->tp_name);
+		if (!strcmp(((PyListObject *)p)->ob_item[n]->ob_type->tp_name, "bytes"))
+		{
+			print_python_bytes(((PyListObject *)p)->ob_item[n]);
+		}
+		else if (!strcmp(((PyListObject *)p)->ob_item[n]->ob_type->tp_name, "float"))
+		{
+			print_python_float(((PyListObject *)p)->ob_item[n]);
+		}
+	}
 }
