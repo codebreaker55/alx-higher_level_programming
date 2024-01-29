@@ -11,18 +11,18 @@ class Rectangle:
     print_symbol = '#'
     """Public class attribute, used as symbol for string representation"""
 
-    def __init__(self, width=0, height=0):
+    def init(self, width=0, height=0):
         """defining width and height"""
 
         self.width = width
         self.height = height
-        Rectangle.number_of_instances = Rectangle.number_of_instances + 1
+        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
         """using getter to retrieve the width"""
 
-        return self.__width
+        return self.width
 
     @width.setter
     def width(self, value):
@@ -62,7 +62,7 @@ class Rectangle:
         else:
             return (self.width + self.height) * 2
 
-    def __str__(self):
+    def __str(self):
         """print the rectangle with the character #"""
 
         if not self.width or not self.height:
@@ -70,13 +70,12 @@ class Rectangle:
         return((str(self.print_symbol) * self.width + "\n")
                * self.height)[:-1]
 
-    def __repr__(self):
-        """return a string representation of the rectangle"""
+    # def repr(self):
+    #     """return a string representation of the rectangle"""
+    #     return "Rectangle(" + str(self.width) + ", " + str(self.height) + ")"
 
-        return "Rectangle(" + str(self.width) + ", " + str(self.height) + ")"
-
-    def __del__(self):
+    def del(self):
         """Print the message Bye rectangle... when an instance is deleted"""
 
         print("Bye rectangle...")
-        Rectangle.number_of_instances = Rectangle.number_of_instances - 1
+        Rectangle.number_of_instances -= 1
