@@ -52,7 +52,7 @@ class Rectangle:
     def area(self):
         """instance method that returns the rectangle area"""
 
-        return self.__width * self.__height
+        return self.width * self.height
 
     def perimeter(self):
         """instance method that returns the rectangle perimeter"""
@@ -60,12 +60,12 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return 0
         else:
-            return (self.__width * 2) + (self.__height * 2)
+            return (self.width * self.height) * 2
 
     def __str__(self):
         """print the rectangle with the character #"""
 
-        if not self.__width or not self.__height:
+        if not self.width or not self.height:
             return ""
         return((str(self.print_symbol) * self.width + "\n")
                * self.height)[:-1]
