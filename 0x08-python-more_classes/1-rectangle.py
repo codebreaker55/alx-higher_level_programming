@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""a class Rectangle that defines a rectangle by: (based on 0-rectangle.py)"""
+"""a class Rectangle that defines a rectangle"""
 
 
 class Rectangle:
@@ -29,19 +29,19 @@ class Rectangle:
         self.__width = value
 
 
-        @property
-        def height(self):
-            """using getter to retrieve the height"""
+    @property
+    def height(self):
+        """using getter to retrieve the height"""
 
-            return self.__height
+        return self.__height
 
 
-        @height.setter
-        def height(self, value):
-            """using setter to set exceptions"""
+    @height.setter
+    def height(self, value):
+        """using setter to set exceptions"""
 
-            if type(value) is not int:
-                raise TypeError("height must be an integer")
-            if value < 0:
-                raise ValueError("height must be >= 0")
-            self.__height = value
+        if type(value) is not int:
+            raise TypeError("height must be an integer")
+        if value < 0:
+            raise ValueError("height must be >= 0")
+        self.__height = value
