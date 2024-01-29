@@ -57,10 +57,10 @@ class Rectangle:
     def perimeter(self):
         """instance method that returns the rectangle perimeter"""
 
-        if self.__width == 0 or self.__height == 0:
+        if not self.width or not self.height:
             return 0
         else:
-            return (self.width * self.height) * 2
+            return (self.width + self.height) * 2
 
     def __str__(self):
         """print the rectangle with the character #"""
