@@ -31,7 +31,7 @@ def matrix_divided(matrix, div):
             if not isinstance(n, (int, float)):
                 raise TypeError("matrix must be a matrix (list of lists) " +
                                 "of integers/floats")
-    return [[round(x / div, 2) for n in row] for row in matrix]
+    return [[round(n / div, 2) for n in row] for row in matrix]
 
 
 if __name__ == "__main__":
