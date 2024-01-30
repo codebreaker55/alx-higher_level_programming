@@ -67,12 +67,12 @@ class Rectangle:
 
         if not self.width or not self.height:
             return ""
-        return((str(self.print_symbol) * self.width + "\n")
-               * self.height)[:-1]
+        return((str(self.print_symbol) * self.width + "\n") * self.height)[:-1]
 
-    # def repr(self):
-    #     """return a string representation of the rectangle"""
-    #     return "Rectangle(" + str(self.width) + ", " + str(self.height) + ")"
+    def repr(self):
+        """return a string representation of the rectangle"""
+
+        return "Rectangle(" + str(self.width) + ", " + str(self.height) + ")"
 
     def del(self):
         """Print the message Bye rectangle... when an instance is deleted"""
