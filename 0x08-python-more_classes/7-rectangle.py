@@ -9,9 +9,9 @@ class Rectangle:
     """Public class attribute to count the number of instances"""
 
     print_symbol = '#'
-    """Public class attribute, used as symbol for string representation"""
+    """a global attribute for string representation"""
 
-    def _init_(self, width=0, height=0):
+    def __init__(self, width=0, height=0):
         """defining width and height"""
 
         self.width = width
@@ -52,29 +52,30 @@ class Rectangle:
     def area(self):
         """instance method that returns the rectangle area"""
 
-        return self.width * self.height
+        return self.__width * self.__height
 
     def perimeter(self):
         """instance method that returns the rectangle perimeter"""
 
-        if not self.width or not self.height:
+        if self.__width == 0 or self.__height == 0:
             return 0
         else:
-            return (self.width + self.height) * 2
+            return (self.__width * 2) + (self.__height * 2)
 
-    def _str_(self):
+    def __str__(self):
         """print the rectangle with the character #"""
 
         if not self.width or not self.height:
             return ""
-        return((str(self.print_symbol) * self.width + "\n") * self.height)[:-1]
+        return ((str(self.print_symbol) * self.width + "\n") *
+                self.height)[:-1]
 
-    def _repr_(self):
+    def __repr__(self):
         """return a string representation of the rectangle"""
 
-        return "Rectangle(" + str(self.width) + ", " + str(self.height) + ")"
+        return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
 
-    def _del_(self):
+    def __del__(self):
         """Print the message Bye rectangle... when an instance is deleted"""
 
         print("Bye rectangle...")
