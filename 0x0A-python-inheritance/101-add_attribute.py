@@ -2,7 +2,7 @@
 """adding new attribute method"""
 
 
-def add_attribute(obj, att, value):
+def add_attribute(obj, attr, value):
     """
     function that adds a new attribute to an object if it’s possible
     if the object can’t have new attribute: Raise a TypeError exception
