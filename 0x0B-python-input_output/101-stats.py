@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """stdin module"""
-import sys
+from sys import stdin
 
 
 status_codes = {
