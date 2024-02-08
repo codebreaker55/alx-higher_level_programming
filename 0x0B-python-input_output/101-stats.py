@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """stdin module"""
+from sys import stdin
 
 
 status_codes = {
@@ -13,7 +14,7 @@ status_codes = {
         "500": 0
         }
 
-total size = n = 0
+tot_size = n = 0
 
 
 def printer():
@@ -32,7 +33,7 @@ try:
             status = split_lin[-2]
             tot_size += int(split_line[-1])
             if status in status_codes:
-                status_codes(status) += 1
+                status_codes[status] += 1
         n = n + 1
 
         if n % 10 == 0:
