@@ -62,7 +62,7 @@ class Base:
         if cls is Rectangle:
             n_dummy = Rectangle(1, 1)
         elif cls is Square:
-            n_dumy = Square(1)
+            n_dummy = Square(1)
         else:
             n_dummy = None
         n_dummy.update(**dictionary)
