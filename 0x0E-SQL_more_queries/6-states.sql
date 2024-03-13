@@ -4,4 +4,5 @@
 -- If the table states already exists, your script should not fail
 
 CREATE database IF NOT EXISTS hbtn_0d_usa;
-CREATE table IF NOT EXISTS states.hbtn_0d_usa (id INT unique, auto generated, can’t be null and is a primary key, name VARCHAR(256) NOT NULL);
+USE hbtn_0d_usa;
+CREATE table IF NOT EXISTS states (id INT unique AUTO_INCREMENT NOT NULL, name VARCHAR(256) NOT NULL, PRIMARY KEY (id));
