@@ -3,4 +3,4 @@
 
 SELECT *
 FROM MySQL users
-WHERE user IN (user_0d_1, user_0d_)
+WHERE user IN (user_0d_1, user_0d_);
