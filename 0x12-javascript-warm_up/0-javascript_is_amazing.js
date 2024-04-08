@@ -1,0 +1,9 @@
+#!/usr/bin/node
+/*
+ * a script that prints “JavaScript is amazing”:
+ * must create a constant variable called myVar with the value “JavaScript is amazing”
+ * must use console.log(...) to print all output
+ * not allowed to use var
+*/
+const myVar = “JavaScript is amazing”;
+console.log( myVar);
