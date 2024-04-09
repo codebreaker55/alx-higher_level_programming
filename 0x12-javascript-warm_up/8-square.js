@@ -14,7 +14,7 @@ if (isNaN(process.argv[2]) || process.argv[2] === undefined) {
   console.log('Missing size');
 } else {
   while (n < x) {
-    console.log('x'.repeat(x));
+    console.log('X'.repeat(x));
     n++;
   }
 }
