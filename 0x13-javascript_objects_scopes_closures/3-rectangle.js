@@ -20,7 +20,7 @@ class Rectangle {
       let r = '';
       n++;
       for (let m = 0; m < this.width; m++) {
-        r += 'x';
+        r = r + 'X';
       }
       console.log(r);
     }
