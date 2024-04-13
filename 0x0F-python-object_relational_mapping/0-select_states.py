@@ -1,7 +1,7 @@
 #!/usr/bin/python3
+"""module that lists all states from the database hbtn_0e_0_usa"""
 import sys
 import MySQLdb
-"""module that lists all states from the database hbtn_0e_0_usa"""
 
 
 def states_list(username, password, database):
@@ -16,7 +16,7 @@ def states_list(username, password, database):
     cursor = db_server.cursor()
 
     # using execute to fetch all the states
-    cursor.execute("SELECT * FROM states ORDER by id ASC")
+    cursor.execute("SELECT * FROM states")
 
     # fetch all the rows
     rows = cursor.fetchall()
