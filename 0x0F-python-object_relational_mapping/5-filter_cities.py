@@ -26,8 +26,8 @@ if __name__ == '__main__':
     rows = cursor.fetchall()
 
     # printing the result
-    for row in rows:
-        print(row)
+    rows_list = list(row[0] for row in rows)
+    print(*rows_list, sep=", ")
 
     # database connection closing
     cursor.close()
