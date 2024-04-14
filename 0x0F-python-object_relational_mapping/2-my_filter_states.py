@@ -18,8 +18,8 @@ if __name__ == '__main__':
     cursor = db_server.cursor()
 
     # using execute to fetch all the states
-    cur = "SELECT * FROM states WHERE name LIKE BINARY %s"
-    cursor.execute(cur, (sys.argv[4],))
+    cur = "SELECT * FROM states WHERE name LIKE BINARY '{}'"
+    cursor.execute(cur.format(sys.argv[4]))
 
     # fetch all the rows
     rows = cursor.fetchall()
