@@ -5,23 +5,22 @@ from model_city import City
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from model_state import Base, State
+from model_state import State
 
 
 if __name__ == "__main__":
     sav = sys.argv
     # connect to a MySQL server running on localhost at port 3306
     s_str = 'mysql+mysqldb://{}:{}@localhost:3306/{}'
-    engine = create_engine(s_str.format(sav[1], sav[2], sav[3]))
+    engine = create_engine(s_str.format(sav[1], sav[2], sav[3]),
+                           pool_pre_ping=True)
     Session = sessionmaker(bind=engine)
-
-    # create tables if they do not exist
-    Base.metadata.create_all(engine)
 
     # create a session
     session = Session()
 
     # display the result
-    for inst in (session.query(State.name, City.id, City.name)
-                 .filter(State.id == City.state_id)):
-        print(inst[0] + ": (" + str(inst[1]) + ") " + inst[2])
+    for city, state in session.query(City, State) \
+                              .filter(State.id == City.state_id) \
+                              .order_by(City.id):
+        print("{}: ({}) {}".format(state.name, city.id, city.name))
