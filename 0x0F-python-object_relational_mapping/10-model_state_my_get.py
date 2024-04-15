@@ -26,6 +26,8 @@ if __name__ == "__main__":
     # query and print State data
     output_query = session.query(State).filter(State.name.like(sav[4])).all()
     if len(output_query) == 0:
+        print("Not found")
+    else:
         print(output_query[0].id)
 
     session.close()
