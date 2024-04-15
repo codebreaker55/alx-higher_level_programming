@@ -21,7 +21,6 @@ if __name__ == "__main__":
     session = Session()
 
     # display the result
-    for city, state in session.query(City, State) \
-                              .filter(City.state_id == State.id) \
-                              .order_by(City.id):
-        print("{}: ({})  {}".format(state.name, city.id, city.name))
+    for instance in (session.query(State.name, City.id, City.name)
+                     .filter(State.id == City.state_id)):
+        print(instance[0] + ": (" + str(instance[1]) + ") " + instance[2])
