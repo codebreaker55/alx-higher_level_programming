@@ -21,5 +21,5 @@ if __name__ == "__main__":
     # create a session
     session = Session()
 
-    for inst in seasson.query(State).filter(State.name.like('%a%')):
+    for inst in sesson.query(State).filter(State.name.like('%a%')):
         print(inst.id, inst.name, sep=": ")
