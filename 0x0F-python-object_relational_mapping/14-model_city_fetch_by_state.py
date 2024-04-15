@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """module that prints all City objects from the database hbtn_0e_14_usa"""
 import sys
+from model_city import City
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
