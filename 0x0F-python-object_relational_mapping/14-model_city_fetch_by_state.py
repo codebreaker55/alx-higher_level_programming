@@ -14,6 +14,9 @@ if __name__ == "__main__":
     engine = create_engine(s_str.format(sav[1], sav[2], sav[3]))
     Session = sessionmaker(bind=engine)
 
+   # create tables if they do not exist
+   Base.metadata.create_all(engine)
+
     # create a session
     session = Session()
 
