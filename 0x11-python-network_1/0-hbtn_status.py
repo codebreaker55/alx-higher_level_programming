@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-import urllib.request
 """
 a Python script that fetches https://alx-intranet.hbtn.io/status:
     using the package urllib
     didnt use any packages other than urllib
     using a with statement
 """
+import urllib.request
 
 
 if __name__ == "__main__":
