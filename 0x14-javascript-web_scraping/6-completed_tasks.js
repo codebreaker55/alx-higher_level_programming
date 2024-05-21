@@ -8,7 +8,7 @@ req.get(url, { json: true }, function (error, response, body) {
   if (error) {
     console.log(error);
     return;
-  }
+  } else {
   const completedTasks = {};
   body.forEach((todo) => {
     if (todo.completed) {
@@ -20,4 +20,5 @@ req.get(url, { json: true }, function (error, response, body) {
     }
   });
   console.log(completedTasks);
+  }
 });
