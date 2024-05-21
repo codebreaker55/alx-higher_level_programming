@@ -9,16 +9,18 @@ req.get(SW_API + url, function (error, response, body) {
     console.log(error);
   } else {
     const content = JSON.parse(body);
-    const character = content.characters;
-    for (const ch of character) {
-      req.get(ch, function (error, response, body) {
-        if (error) {
-          console.log(error);
-        } else {
-          const nams = JSON.parse(body);
-          console.log(nams.name);
-        }
-      });
-    }
+    const characters = content.characters;
+    charactersPRINT(characters, 0);
   }
 });
+
+function charactersPRINT (characters, index) {
+  req(characters[index], function (error, response, body) {
+    if (!error) {
+      console.log(JSON.parse(body).name);
+      if (index + 1 < characters.length) {
+        charactersPRINT(characters, index + 1);
+      }
+    }
+  });
+}
